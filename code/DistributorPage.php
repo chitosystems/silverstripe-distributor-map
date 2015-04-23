@@ -30,13 +30,13 @@ class DistributorPage_Controller extends Page_Controller
     public function init()
     {
         parent:: init();
-        Requirements::css(DISTRIBUTOR_MAP__DIR .'/css/distributor-map.css');
-        Requirements::javascript(DISTRIBUTOR_MAP__DIR."/js/Base64Handler.js");
+        Requirements::css(DISTRIBUTOR_MAP__DIR . '/css/distributor-map.css');
+        Requirements::javascript(DISTRIBUTOR_MAP__DIR . "/js/Base64Handler.js");
 
         $aVars = array(
             'Address' => $this->Address,
             'Project' => PROJECT,
-            'Module'=>DISTRIBUTOR_MAP__DIR,
+            'Module' => DISTRIBUTOR_MAP__DIR,
             'Distributors' => $this->DistributorList()
         );
         Requirements::javascriptTemplate(DISTRIBUTOR_MAP__DIR . '/js/DistributorGoogleMapCode.js', $aVars);
@@ -64,17 +64,15 @@ class DistributorPage_Controller extends Page_Controller
 
     /**
      * @param Distributor $record
-     * @return HTMLText
+     * @return mixed
      */
     function getInfoWindow(Distributor $record)
     {
-        $data = array();
-        if ($record->ImageID) {
-            $image = $record->Image();
-            $data['Image'] = $image->ResizeByWidth(80);
-        }
-        $aData = array_merge($data,$record->Details());
-        $html =   $this->customise($aData)->renderWith(array("DistributorInfoWindow"));
+        $aData = array_merge($record->Details());
+        $html = $this->customise($aData)->renderWith(array("DistributorInfoWindow"));
         return $html->Value;
+
+
     }
+
 }

@@ -32,13 +32,13 @@ class Distributor extends DataObject
     function Details()
     {
         $aDetails = array(
-            $this->Name,
-            $this->Email,
             $this->ContactNumber,
             $this->Town
         );
         $data = array(
-            "Details" => implode(',<br /> ', array_filter($aDetails)),
+            "Name"=>$this->Name,
+            "Email"=>$this->Email,
+            "Address" => implode(',<br /> ', array_filter($aDetails)),
             "Description" => $this->Description,
         );
         if ($this->ImageID) {

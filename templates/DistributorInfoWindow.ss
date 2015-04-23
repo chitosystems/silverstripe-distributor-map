@@ -5,10 +5,8 @@
         <td align="left" valign="top">
             <ul>
                 <li><h2>$Name</h2></li>
-
-                <li>
-                    <div class="strong">$Details</div>
-                </li>
+                <li><a href="mailto:{$Email}">{$Email}</a></li>
+                <li class="strong">$Address</li>
                 <li>$Description</li>
             </ul>
         </td>

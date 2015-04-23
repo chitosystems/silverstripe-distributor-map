@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,2BAAY;EACV,UAAU,EAAE,KAAK",
+"sources": ["../sass/distributor-map.scss"],
+"names": [],
+"file": "distributor-map.css"
+}

@@ -1,3 +1,3 @@
-# silverstripe-googleanalytics-lite
-silverstripe-googleanalytics-lite
+# silverstripe-distributor-map
+silverstripe-distributor-map
 

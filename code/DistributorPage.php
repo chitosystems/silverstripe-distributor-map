@@ -68,8 +68,7 @@ class DistributorPage_Controller extends Page_Controller
      */
     function getInfoWindow(Distributor $record)
     {
-        $aData = array_merge($record->Details());
-        $html = $this->customise($aData)->renderWith(array("DistributorInfoWindow"));
+        $html = $this->customise($record->Details())->renderWith(array("DistributorInfoWindow"));
         return $html->Value;
 
 

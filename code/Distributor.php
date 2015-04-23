@@ -64,7 +64,7 @@ class Distributor extends DataObject
         $HeroImage->setConfig('allowedMaxFileNumber', 1);
         $HeroImage->setFolderName('Uploads/Distributors/' . $this->URLSegment);
 
-        $f->addFieldsToTab('Root.Main', HtmlEditorField::create("Description")->setRows(15));
+        $f->addFieldsToTab('Root.Image', HtmlEditorField::create("Description")->setRows(15));
 
         return $f;
     }

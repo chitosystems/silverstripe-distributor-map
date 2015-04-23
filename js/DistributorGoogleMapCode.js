@@ -1,6 +1,6 @@
 $(document).ready(function () {
     if($("#mapWrapper").length > 0)
-    initialize('mapWrapper');
+        initialize('mapWrapper');
 });
 
 function initialize(id) {
@@ -156,7 +156,7 @@ function initialize(id) {
 
 
         if (locations[i][2] !== undefined && locations[i][3] !== undefined) {
-            var content = '<div class="infoWindow">' + locations[i][0] + '<br>' + locations[i][1] + '</div>';
+            var content = '<div class="infoWindow">' + Base64Handler.decode(locations[i][4]) +'</div>';
             (function (content) {
                 myLatlng = new google.maps.LatLng(locations[i][2], locations[i][3]);
 

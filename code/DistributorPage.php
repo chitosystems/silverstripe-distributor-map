@@ -30,6 +30,8 @@ class DistributorPage_Controller extends Page_Controller
     public function init()
     {
         parent:: init();
+        Requirements::css(DISTRIBUTOR_MAP__DIR .'/css/distributor-map.css');
+        Requirements::javascript(DISTRIBUTOR_MAP__DIR."/js/Base64Handler.js");
 
         $aVars = array(
             'Address' => $this->Address,
@@ -37,7 +39,7 @@ class DistributorPage_Controller extends Page_Controller
             'Module'=>DISTRIBUTOR_MAP__DIR,
             'Distributors' => $this->DistributorList()
         );
-        Requirements::javascriptTemplate(PROJECT . '/js/GoogleMapCode.js', $aVars);
+        Requirements::javascriptTemplate(DISTRIBUTOR_MAP__DIR . '/js/DistributorGoogleMapCode.js', $aVars);
 
     }
 
@@ -48,12 +50,12 @@ class DistributorPage_Controller extends Page_Controller
         $Distributors = $this->Distributors();
         if (count($Distributors)) {
             foreach ($Distributors as $record) {
-                $aPlaces [] = sprintf(" ['%s', '%s', %s, %s, %s]",
+                $aPlaces [] = sprintf(" ['%s', '%s', %s, %s, '%s']",
                     Convert::raw2sql($record->Name),
                     Convert::raw2sql($record->Town),
                     Convert::raw2sql($record->Latitude),
                     Convert::raw2sql($record->Longitude),
-                    Convert::raw2sql($this->getInfoWindow($record))
+                    base64_encode($this->getInfoWindow($record))
                 );
             }
         }
@@ -62,14 +64,17 @@ class DistributorPage_Controller extends Page_Controller
 
     /**
      * @param Distributor $record
+     * @return HTMLText
      */
     function getInfoWindow(Distributor $record)
     {
+        $data = array();
         if ($record->ImageID) {
             $image = $record->Image();
+            $data['Image'] = $image->ResizeByWidth(80);
         }
-
-        $data = array();
+        $aData = array_merge($data,$record->Details());
+        $html =   $this->customise($aData)->renderWith(array("DistributorInfoWindow"));
+        return $html->Value;
     }
-
 }

@@ -1,12 +1,16 @@
-<table  width="100%" cellpadding="0" cellspacing="0">
+<table width="100%" cellpadding="0" cellspacing="0">
     <tr>
-        <td width="80" align="left" valign="top" style="width: 80px;margin-right:10px;">
-            <img src="$Image.URL" />
+        <td width="80" align="left" valign="top" style="width: 80px;float:left;margin-right:10px;">
+            <img src="$Image.URL"/>
         <td align="left" valign="top">
-        <div>
-            <div class="strong">$Details</div>
-            <div>$Description</div>
-        </div>
+            <ul>
+                <li><h2>$Name</h2></li>
+
+                <li>
+                    <div class="strong">$Details</div>
+                </li>
+                <li>$Description</li>
+            </ul>
         </td>
     </tr>
 </table>

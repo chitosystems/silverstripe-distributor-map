@@ -3,7 +3,8 @@
         <td>
             <img src="$Image.URL" />
         <td>
-            <div class="strong">$Name</div>
+            <div class="strong">$Details</div>
+        <div>$Description</div>
         </td>
     </tr>
 </table>

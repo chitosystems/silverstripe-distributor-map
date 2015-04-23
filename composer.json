@@ -1,0 +1,26 @@
+{
+  "name": "chitosystems/silverstripe-distributor-map",
+  "description": "silverstripe google based distributors map",
+  "type": "silverstripe-module",
+  "keywords": [
+    "silverstripe",
+    "chitosystems",
+    "distributor",
+    "google",
+    "distributor-map"
+  ],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Itayi Paul Patrick Chitovoro",
+      "email": "patrick@chitosystems.com"
+    }
+  ],
+  "require": {
+    "silverstripe/framework": "3.*",
+    "silverstripe/cms": "3.*"
+  },
+  "extra": {
+    "installer-name": "distributor-map"
+  }
+}

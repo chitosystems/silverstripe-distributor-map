@@ -56,15 +56,15 @@ class Distributor extends DataObject
         $f->removeByName(array('SortOrder', 'Image'));
 
         $f->removeByName('SortOrder');
+        $f->addFieldsToTab('Root.Main', HtmlEditorField::create("Description")->setRows(15));
 
-        $f->addFieldsToTab('Root.Main', $HeroImage = new UploadField('Image', 'Please upload a Hero image <span>(max. 1 files)</span>'));
+        $f->addFieldsToTab('Root.Image', $HeroImage = new UploadField('Image', 'Please upload a Hero image <span>(max. 1 files)</span>'));
         $HeroImage->setAllowedFileCategories('image');
         $HeroImage->setAllowedMaxFileNumber(1);
         $HeroImage->getValidator()->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif'));
         $HeroImage->setConfig('allowedMaxFileNumber', 1);
         $HeroImage->setFolderName('Uploads/Distributors/' . $this->URLSegment);
 
-        $f->addFieldsToTab('Root.Image', HtmlEditorField::create("Description")->setRows(15));
 
         return $f;
     }

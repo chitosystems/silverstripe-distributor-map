@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Patrick
- * Date: 30/04/2015
- * Time: 08:55
- */
 class DistributorForm extends Form
 {
     function __construct($controller, $name)

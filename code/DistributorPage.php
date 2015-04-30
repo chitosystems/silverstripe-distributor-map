@@ -26,20 +26,23 @@ class DistributorPage extends Page
 
 class DistributorPage_Controller extends Page_Controller
 {
-
+    private static $allowed_actions = array(
+        "add",
+        "DistributorForm"
+    );
     public function init()
     {
         parent:: init();
-        Requirements::css(DISTRIBUTOR_MAP__DIR . '/css/distributor-map.css');
-        Requirements::javascript(DISTRIBUTOR_MAP__DIR . "/js/Base64Handler.js");
+        Requirements::css(DISTRIBUTOR_MAP_DIR . '/css/distributor-map.css');
+        Requirements::javascript(DISTRIBUTOR_MAP_DIR . "/js/Base64Handler.js");
 
         $aVars = array(
             'Address' => $this->Address,
             'Project' => PROJECT,
-            'Module' => DISTRIBUTOR_MAP__DIR,
+            'Module' => DISTRIBUTOR_MAP_DIR,
             'Distributors' => $this->DistributorList()
         );
-        Requirements::javascriptTemplate(DISTRIBUTOR_MAP__DIR . '/js/DistributorGoogleMapCode.js', $aVars);
+        Requirements::javascriptTemplate(DISTRIBUTOR_MAP_DIR . '/js/DistributorGoogleMapCode.js', $aVars);
 
     }
 
@@ -47,7 +50,7 @@ class DistributorPage_Controller extends Page_Controller
     function DistributorList()
     {
         $aPlaces = array();
-        $Distributors = $this->Distributors();
+        $Distributors = $this->Distributors()->filter(array("Status"=>"Active"));
         if (count($Distributors)) {
             foreach ($Distributors as $record) {
                 $aPlaces [] = sprintf(" ['%s', '%s', %s, %s, '%s']",
@@ -72,6 +75,19 @@ class DistributorPage_Controller extends Page_Controller
         return $html->Value;
 
 
+    }
+
+
+    function add(){
+        $data = array(
+            "SlideShow"=>false,
+            "Form"=>$this->DistributorForm()
+        );
+        return $this->customise($data)->renderWith(array("DistributorPage_add","Page"));
+    }
+
+    function DistributorForm(){
+        return DistributorForm::create($this,__FUNCTION__);
     }
 
 }

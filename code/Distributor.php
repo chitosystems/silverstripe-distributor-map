@@ -5,6 +5,7 @@ class Distributor extends DataObject
 
     public static $default_sort = 'SortOrder';
     static $db = array(
+        'Status' => 'Enum("Pending,Active","Pending")',
         'Name' => 'Varchar(255)',
         'Email' => 'Varchar(255)',
         'ContactNumber' => 'Varchar(255)',

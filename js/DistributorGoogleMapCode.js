@@ -6,7 +6,7 @@ $(document).ready(function () {
 function initialize(id) {
     "use strict";
     var image = '$Module/images/icon-map.png';
-    var overlayTitle = 'Agencies';
+    var overlayTitle = 'Distributors';
     var locations = [$Distributors];
 
     /*** DON'T CHANGE ANYTHING PASSED THIS LINE ***/

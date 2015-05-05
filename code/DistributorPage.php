@@ -7,7 +7,10 @@
 class DistributorPage extends Page
 {
     private static $can_be_root = true;
-    public static $db = array();
+    public static $db = array(
+        "AllowAddingDistributors" => "Boolean",
+        "AddButtonText" => "Varchar(255)",
+    );
     public static $has_one = array();
     public static $has_many = array(
         "Distributors" => "Distributor",
@@ -19,7 +22,8 @@ class DistributorPage extends Page
         $gridFieldConfig = GridFieldConfig_RecordEditor::create();
         $gridField = new GridField('Distributors', 'Testimonials', $this->Distributors(), $gridFieldConfig);
         $f->addFieldToTab('Root.Distributors', $gridField);
-
+        $f->addFieldToTab("Root.Distributors", CheckboxField::create('AllowAddingDistributors'));
+        $f->addFieldToTab("Root.Distributors", TextField::create('AddButtonText'));
         return $f;
     }
 }
@@ -30,6 +34,7 @@ class DistributorPage_Controller extends Page_Controller
         "add",
         "DistributorForm"
     );
+
     public function init()
     {
         parent:: init();
@@ -50,7 +55,7 @@ class DistributorPage_Controller extends Page_Controller
     function DistributorList()
     {
         $aPlaces = array();
-        $Distributors = $this->Distributors()->filter(array("Status"=>"Active"));
+        $Distributors = $this->Distributors()->filter(array("Status" => "Active"));
         if (count($Distributors)) {
             foreach ($Distributors as $record) {
                 $aPlaces [] = sprintf(" ['%s', '%s', %s, %s, '%s']",
@@ -78,16 +83,18 @@ class DistributorPage_Controller extends Page_Controller
     }
 
 
-    function add(){
+    function add()
+    {
         $data = array(
-            "SlideShow"=>false,
-            "Form"=>$this->DistributorForm()
+            "SlideShow" => false,
+            "Form" => $this->DistributorForm()
         );
-        return $this->customise($data)->renderWith(array("DistributorPage_add","Page"));
+        return $this->customise($data)->renderWith(array("DistributorPage_add", "Page"));
     }
 
-    function DistributorForm(){
-        return DistributorForm::create($this,__FUNCTION__);
+    function DistributorForm()
+    {
+        return DistributorForm::create($this, __FUNCTION__);
     }
 
 }

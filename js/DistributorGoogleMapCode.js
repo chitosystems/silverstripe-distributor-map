@@ -203,7 +203,7 @@ function initialize(id) {
                     marker = new google.maps.Marker({
                         position: myLatlng,
                         icon: image,
-                        title: overlayTitle,
+                        title: locations[i][0],
                         map: map
                     });
                     var $content = '<div class="infoWindow">' + info + '<br>' + addr + '</div>';

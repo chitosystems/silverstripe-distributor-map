@@ -6,8 +6,7 @@ class DistributorForm extends Form
     {
 
         $f = new FieldList();
-        $f->push(BootstrapTextField::create('Name'));
-        $f->push(BootstrapTextField::create('Surname'));
+        $f->push(BootstrapTextField::create('Name',"Full name"));
         $f->push(BootstrapEmailField::create('Email'));
         $f->push(BootstrapEmailField::create('ContactNumber'));
         $f->push(CustomCountryDropdownField::create('Country')->setEmptyString('--please select--'));

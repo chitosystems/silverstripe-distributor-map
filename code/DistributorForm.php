@@ -13,7 +13,12 @@ class DistributorForm extends Form
         $f->push(BootstrapTextField::create('Town'));
         $f->push(BootstrapTextField::create('Latitude'));
         $f->push(BootstrapTextField::create('Longitude'));
-        $f->push(BootstrapFileField::create('Image'));
+        $f->push(FileAttachmentField::create('Image')->setView('list')
+            ->setThumbnailHeight(180)
+            ->setThumbanilWidth(180)
+            ->setAutoProcessQueue(false)
+            ->setMaxFilesize(1)
+            ->imagesOnly());
 
         $f->push(BootstrapTextareaField::create('Description'));
         $actions = new FieldList(

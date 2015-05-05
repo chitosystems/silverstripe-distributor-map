@@ -8,12 +8,11 @@
                 <h1 class="page_title">{$Title}</h1>
                 {$Content}
 
-                <% if $AllowAddingDistributors %>
                 <div id="AddButtonText">
-                    <a href="$Link(add/)" class="btn btn-default"><% $AddButtonText %>$AddButtonText<% else %>Add Distributors<% end_if %></a>
+                    <% if $AllowAddingDistributors %>
+                        <a href="$Link(add/)" class="btn btn-default"><% $AddButtonText %>$AddButtonText<% else %>Add Distributors<% end_if %></a>
+                    <% end_if %>
                 </div>
-                <% end_if %>
-
 
                 <div style="margin: 50px 0;">
                     <section id="map-container">

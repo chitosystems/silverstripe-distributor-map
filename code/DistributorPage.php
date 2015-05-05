@@ -21,9 +21,11 @@ class DistributorPage extends Page
         $f = parent::getCMSFields();
         $gridFieldConfig = GridFieldConfig_RecordEditor::create();
         $gridField = new GridField('Distributors', 'Testimonials', $this->Distributors(), $gridFieldConfig);
-        $f->addFieldToTab('Root.Distributors', $gridField);
-        $f->addFieldToTab("Root.Distributors", CheckboxField::create('AllowAddingDistributors'));
-        $f->addFieldToTab("Root.Distributors", TextField::create('AddButtonText'));
+        $f->addFieldToTab('Root.Distributors', array(
+            CheckboxField::create('AllowAddingDistributors'),
+            TextField::create('AddButtonText'),
+            $gridField
+        ));
         return $f;
     }
 }

@@ -20,6 +20,7 @@ class Distributor extends DataObject
         'DistributorPage' => 'DistributorPage',
     );
     static $summary_fields = array(
+        'Status',
         'Name',
         'Email',
         'ContactNumber',

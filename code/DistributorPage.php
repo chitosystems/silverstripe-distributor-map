@@ -8,6 +8,7 @@ class DistributorPage extends Page
 {
     private static $can_be_root = true;
     public static $db = array(
+        "AddContent" => "HTMLText",
         "AllowAddingDistributors" => "Boolean",
         "AddButtonText" => "Varchar(255)",
     );
@@ -26,6 +27,9 @@ class DistributorPage extends Page
             TextField::create('AddButtonText'),
             $gridField
         ));
+        if($this->AllowAddingDistributors){
+            $f->addFieldsToTab('Root.Main', HtmlEditorField::create("AddContent","Distributors add content")->setRows(15));
+        }
         return $f;
     }
 }

@@ -22,9 +22,11 @@
                     </section>
                 </div>
 
+                <% if $AllowAddingDistributors %>
                 <div id="DistributorForm">
                     $DistributorForm
                 </div>
+                <% end_if %>
             </div>
             <!-- .section-content -->
         </div>

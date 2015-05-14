@@ -4,15 +4,17 @@
 #DistributorMap #mapWrapper {
   min-height: 500px; }
 
-form.DistributorForm #Description textarea {
-  margin-bottom: 0; }
-form.DistributorForm #Description #charLeft {
-  min-widthwidth: 60px;
-  line-height: 25px;
-  min-height: 25px; }
-  form.DistributorForm #Description #charLeft span {
-    font-size: 0.8em;
-    font-style: italic;
-    color: red; }
+#DistributorForm {
+  margin: 50px 0; }
+  #DistributorForm form.DistributorForm #Description textarea {
+    margin-bottom: 0; }
+  #DistributorForm form.DistributorForm #Description #charLeft {
+    min-width: 60px;
+    line-height: 25px;
+    min-height: 25px; }
+    #DistributorForm form.DistributorForm #Description #charLeft span {
+      font-size: 0.8em;
+      font-style: italic;
+      color: red; }
 
 /*# sourceMappingURL=distributor-map.css.map */

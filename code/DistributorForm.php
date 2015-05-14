@@ -15,7 +15,8 @@ class DistributorForm extends Form
         $f->push(BootstrapTextField::create('Longitude'));
         $f->push(FileField::create('Image'));
 
-        $f->push(BootstrapTextareaField::create('Description'));
+        $f->push(BootstrapTextareaField::create('Description')->setRightTitle("<div id='charLeft'>200</div>"));
+
         $actions = new FieldList(
             $btn = new FormAction('doSubmit', 'Submit')
         );
@@ -28,7 +29,7 @@ class DistributorForm extends Form
         $requiredFields = new RequiredFields();
 
         parent::__construct($controller, $name, $f, $actions, $requiredFields);
-        $this->addExtraClass('form-horizontal');
+        $this->addExtraClass('form-horizontal '.get_class());
         //$this->loadValidationScripts($this, $aRequiredFields);
     }
 

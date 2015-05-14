@@ -7,3 +7,20 @@
   }
 
 }
+
+form.DistributorForm {
+  #Description {
+    textarea {
+      margin-bottom: 0;
+    }
+    #charLeft {
+      border: 1px solid #000;
+      width: 60px;
+      line-height: 25px;
+      min-height: 25px;
+      span {
+        color: red;
+      }
+    }
+  }
+}

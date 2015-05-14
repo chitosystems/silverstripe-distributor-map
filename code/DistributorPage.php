@@ -41,6 +41,9 @@ class DistributorPage_Controller extends Page_Controller
     {
         parent:: init();
         Requirements::css(DISTRIBUTOR_MAP_DIR . '/css/distributor-map.css');
+
+        Requirements::javascript(DISTRIBUTOR_MAP_DIR . "/js/DistributorMap.js");
+
         Requirements::javascript(DISTRIBUTOR_MAP_DIR . "/js/Base64Handler.js");
 
         $aVars = array(

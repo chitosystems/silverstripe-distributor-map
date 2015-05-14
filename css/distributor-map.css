@@ -4,4 +4,14 @@
 #DistributorMap #mapWrapper {
   min-height: 500px; }
 
+form.DistributorForm #Description textarea {
+  margin-bottom: 0; }
+form.DistributorForm #Description #charLeft {
+  border: 1px solid #000;
+  width: 60px;
+  line-height: 25px;
+  min-height: 25px; }
+  form.DistributorForm #Description #charLeft span {
+    color: red; }
+
 /*# sourceMappingURL=distributor-map.css.map */

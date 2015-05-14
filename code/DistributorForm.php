@@ -7,8 +7,8 @@ class DistributorForm extends Form
 
         $f = new FieldList();
         $f->push(BootstrapTextField::create('Name',"Full name"));
-        $f->push(BootstrapEmailField::create('Email'));
-        $f->push(BootstrapEmailField::create('ContactNumber'));
+        $f->push(BootstrapEmailField::create('Email',"Email (will not be published)"));
+        $f->push(BootstrapEmailField::create('ContactNumber','Contact number (will not be published)'));
         $f->push(CustomCountryDropdownField::create('Country')->setEmptyString('--please select--'));
         $f->push(BootstrapTextField::create('Town'));
         $f->push(BootstrapTextField::create('Latitude'));

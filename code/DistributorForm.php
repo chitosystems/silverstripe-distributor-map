@@ -15,7 +15,7 @@ class DistributorForm extends Form
         $f->push(BootstrapTextField::create('Longitude'));
         $f->push(FileField::create('Image'));
 
-        $f->push(BootstrapTextareaField::create('Description')->setRightTitle("<div id='charLeft'>200</div>"));
+        $f->push(BootstrapTextareaField::create('Description')->setRightTitle("<div id='charLeft'><span>200</span></div>"));
 
         $actions = new FieldList(
             $btn = new FormAction('doSubmit', 'Submit')

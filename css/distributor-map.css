@@ -7,11 +7,12 @@
 form.DistributorForm #Description textarea {
   margin-bottom: 0; }
 form.DistributorForm #Description #charLeft {
-  border: 1px solid #000;
-  width: 60px;
+  min-widthwidth: 60px;
   line-height: 25px;
   min-height: 25px; }
   form.DistributorForm #Description #charLeft span {
+    font-size: 0.8em;
+    font-style: italic;
     color: red; }
 
 /*# sourceMappingURL=distributor-map.css.map */

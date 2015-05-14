@@ -14,11 +14,12 @@ form.DistributorForm {
       margin-bottom: 0;
     }
     #charLeft {
-      border: 1px solid #000;
-      width: 60px;
+      min-width: 60px;
       line-height: 25px;
       min-height: 25px;
       span {
+        font-size: 0.8em;
+        font-style: italic;
         color: red;
       }
     }

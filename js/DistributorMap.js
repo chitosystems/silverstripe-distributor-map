@@ -4,6 +4,6 @@ $(document).ready(function() {
         if (len >= 200) {
             this.value = this.value.substring(0, 200);
         }
-        $('form.DistributorForm #Description #charLeft').text(200 - len);
+        $('form.DistributorForm #Description #charLeft span').text(200 - len);
     });
 });

@@ -21,6 +21,10 @@
                         </div>
                     </section>
                 </div>
+
+                <div id="DistributorForm">
+                    $DistributorForm
+                </div>
             </div>
             <!-- .section-content -->
         </div>

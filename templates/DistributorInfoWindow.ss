@@ -6,7 +6,6 @@
         <td align="left" valign="top">
             <ul class="clearUL">
                 <li><h2 style="margin-top: 0;">$Name</h2></li>
-                <li><a href="mailto:{$Email}">{$Email}</a></li>
                 <li class="strong">$Address</li>
                 <li>$Description</li>
             </ul>

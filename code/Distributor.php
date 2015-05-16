@@ -34,7 +34,7 @@ class Distributor extends DataObject
     function Details()
     {
         $aDetails = array(
-            $this->ContactNumber,
+            //$this->ContactNumber,
             $this->Town
         );
         $data = array(

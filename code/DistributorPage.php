@@ -56,7 +56,7 @@ class DistributorPage_Controller extends Page_Controller
             'Module' => DISTRIBUTOR_MAP_DIR,
             'Distributors' => $this->DistributorList()
         );
-        Requirements::javascriptTemplate(DISTRIBUTOR_MAP_DIR . '/js/DistributorGoogleMapCode.js', $aVars);
+        Requirements::javascriptTemplate(DISTRIBUTOR_MAP_DIR . '/js/DistributorGoogleMapCode.js', $aVars,"Distributors-".$this->ID);
 
     }
 

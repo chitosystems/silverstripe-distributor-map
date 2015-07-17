@@ -12,7 +12,9 @@ class DistributorPage extends Page
         "AllowAddingDistributors" => "Boolean",
         "AddButtonText" => "Varchar(255)",
     );
-    public static $has_one = array();
+    public static $has_one = array(
+        "MapIcon" => "Image",
+    );
     public static $has_many = array(
         "Distributors" => "Distributor",
     );
@@ -27,9 +29,16 @@ class DistributorPage extends Page
             TextField::create('AddButtonText'),
             $gridField
         ));
-        if($this->AllowAddingDistributors){
-            $f->addFieldsToTab('Root.Main', HtmlEditorField::create("AddContent","Distributors add content")->setRows(15));
+        if ($this->AllowAddingDistributors) {
+            $f->addFieldsToTab('Root.Main', HtmlEditorField::create("AddContent", "Distributors add content")->setRows(15));
         }
+        $PageImage = UploadField::create("MapIcon", "Please upload your map Icon image");
+        $PageImage->setAllowedFileCategories('image');
+        $PageImage->setAllowedMaxFileNumber(1);
+        $PageImage->setFolderName('Uploads/MapIcon');
+
+        $f->addFieldsToTab("Root.Images", $PageImage);
+
         return $f;
     }
 }
@@ -45,19 +54,24 @@ class DistributorPage_Controller extends Page_Controller
     {
         parent:: init();
         Requirements::css(DISTRIBUTOR_MAP_DIR . '/css/distributor-map.css');
-
         Requirements::javascript(DISTRIBUTOR_MAP_DIR . "/js/DistributorMap.js");
-
         Requirements::javascript(DISTRIBUTOR_MAP_DIR . "/js/Base64Handler.js");
-
         $aVars = array(
             'Address' => $this->Address,
             'Project' => PROJECT,
             'Module' => DISTRIBUTOR_MAP_DIR,
+            'MapIcon' => $this->getMapIcon(),
             'Distributors' => $this->DistributorList()
         );
-        Requirements::javascriptTemplate(DISTRIBUTOR_MAP_DIR . '/js/DistributorGoogleMapCode.js', $aVars,"Distributors-".$this->ID);
+        Requirements::javascriptTemplate(DISTRIBUTOR_MAP_DIR . '/js/DistributorGoogleMapCode.js', $aVars, "Distributors-" . $this->ID);
+    }
 
+    private function getMapIcon()
+    {
+        if ($this->MapIconID) {
+            return $this->MapIcon()->URL;
+        }
+        return DISTRIBUTOR_MAP_DIR . "/images/icon-map.png";
     }
 
 

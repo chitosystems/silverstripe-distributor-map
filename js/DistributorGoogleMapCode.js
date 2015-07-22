@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    if($("#mapWrapper").length > 0)
-        initialize('mapWrapper');
+    if($("#DistributorMapWrapper").length > 0)
+        initialize('DistributorMapWrapper');
 });
 
 function initialize(id) {
@@ -10,7 +10,7 @@ function initialize(id) {
     var locations = [$Distributors];
 
     /*** DON'T CHANGE ANYTHING PASSED THIS LINE ***/
-    id = (id === undefined) ? 'mapWrapper' : id;
+    id = (id === undefined) ? 'DistributorMapWrapper' : id;
 
     var map = new google.maps.Map(document.getElementById(id), {
         mapTypeId: google.maps.MapTypeId.ROADMAP,

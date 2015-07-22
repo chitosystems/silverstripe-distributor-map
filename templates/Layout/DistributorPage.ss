@@ -11,7 +11,7 @@
                 <div style="margin: 50px 0;">
                     <section id="map-container">
                         <div id="DistributorMap">
-                            <div id="mapWrapper" class="mb30"></div>
+                            <div id="DistributorMapWrapper" class="mb30"></div>
                         </div>
                     </section>
                 </div>

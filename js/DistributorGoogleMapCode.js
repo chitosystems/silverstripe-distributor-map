@@ -1,9 +1,9 @@
 $(document).ready(function () {
     if($("#DistributorMapWrapper").length > 0)
-        initialize('DistributorMapWrapper');
+        initializeDistributorMap('DistributorMapWrapper');
 });
 
-function initialize(id) {
+function initializeDistributorMap(id) {
     "use strict";
     var image = '$MapIcon';
     var overlayTitle = 'Distributors';

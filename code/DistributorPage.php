@@ -75,7 +75,7 @@ class DistributorPage_Controller extends Page_Controller
     }
 
 
-    function DistributorList()
+    public function DistributorList()
     {
         $aPlaces = array();
         $Distributors = $this->Distributors()->filter(array("Status" => "Active"));
@@ -97,16 +97,14 @@ class DistributorPage_Controller extends Page_Controller
      * @param Distributor $record
      * @return mixed
      */
-    function getInfoWindow(Distributor $record)
+    public function getInfoWindow(Distributor $record)
     {
         $html = $this->customise($record->Details())->renderWith(array("DistributorInfoWindow"));
         return $html->Value;
-
-
     }
 
 
-    function add()
+    public function add()
     {
         $data = array(
             "SlideShow" => false,
@@ -115,9 +113,8 @@ class DistributorPage_Controller extends Page_Controller
         return $this->customise($data)->renderWith(array("DistributorPage_add", "Page"));
     }
 
-    function DistributorForm()
+    public function DistributorForm()
     {
         return DistributorForm::create($this, __FUNCTION__);
     }
-
 }

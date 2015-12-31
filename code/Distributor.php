@@ -4,7 +4,7 @@ class Distributor extends DataObject
 {
 
     public static $default_sort = 'SortOrder';
-    static $db = array(
+    public static $db = array(
         'Status' => 'Enum("Pending,Active","Pending")',
         'Name' => 'Varchar(255)',
         'Email' => 'Varchar(255)',
@@ -15,11 +15,11 @@ class Distributor extends DataObject
         'Description' => "HTMLText",
         'SortOrder' => 'Int',
     );
-    static $has_one = array(
+    public static $has_one = array(
         "Image" => "DistributorImage",
         'DistributorPage' => 'DistributorPage',
     );
-    static $summary_fields = array(
+    public static $summary_fields = array(
         'Status',
         'Name',
         'Email',
@@ -31,7 +31,7 @@ class Distributor extends DataObject
     /**
      * @return array
      */
-    function Details()
+    public function Details()
     {
         $aDetails = array(
             //$this->ContactNumber,
@@ -49,10 +49,9 @@ class Distributor extends DataObject
         }
 
         return $data;
-
     }
 
-    function getCMSFields()
+    public function getCMSFields()
     {
         $f = parent::getCMSFields();
         $f->removeByName(array('SortOrder', 'Image'));
@@ -70,5 +69,4 @@ class Distributor extends DataObject
 
         return $f;
     }
-
 }

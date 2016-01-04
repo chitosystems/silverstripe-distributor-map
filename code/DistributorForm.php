@@ -2,13 +2,12 @@
 
 class DistributorForm extends Form
 {
-    function __construct($controller, $name)
+    public function __construct($controller, $name)
     {
-
         $f = new FieldList();
-        $f->push(BootstrapTextField::create('Name',"Full name"));
-        $f->push(BootstrapEmailField::create('Email',"Email (will not be published)"));
-        $f->push(BootstrapEmailField::create('ContactNumber','Contact number (will not be published)'));
+        $f->push(BootstrapTextField::create('Name', "Full name"));
+        $f->push(BootstrapEmailField::create('Email', "Email (will not be published)"));
+        $f->push(BootstrapEmailField::create('ContactNumber', 'Contact number (will not be published)'));
         $f->push(CustomCountryDropdownField::create('Country')->setEmptyString('--please select--'));
         $f->push(BootstrapTextField::create('Town'));
         $f->push(BootstrapTextField::create('Latitude'));
@@ -33,7 +32,7 @@ class DistributorForm extends Form
         //$this->loadValidationScripts($this, $aRequiredFields);
     }
 
-    function doSubmit(array $raw_data, Form $form)
+    public function doSubmit(array $raw_data, Form $form)
     {
         $controller = $form->getController();
         $data = Convert::raw2sql($raw_data);
